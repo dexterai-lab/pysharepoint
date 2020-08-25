@@ -3,19 +3,15 @@ from shareplum import Site
 from shareplum import Office365
 from shareplum.site import Version
 
-# Replace the scope and key to your own Service Account credentials on Azure Keyvault
-
-authcookie = Office365('https://abc.sharepoint.com', username='username@abc.com', password='password').GetCookies()
-sharepoint_site='https://abc.sharepoint.com/sites/FVCDevOps/'
 
 class SPInterface:
     """This is a class to interact with Sharepoint from Python"""
 
-    def __init__(self, sharepoint_site, username, password):
+    def __init__(self, sharepoint_base_url, username, password):
         self.username = username
         self.password = password
-        self.sharepoint_site = sharepoint_site
-
+        self.sharepoint_base_url = sharepoint_base_url
+        self.authcookie = Office365(sharepoint_base_url, username=username, password=password).GetCookies()
 
     def download_file_sharepoint(self,source_path, sink_path, filename, sharepoint_site):
         site = Site(sharepoint_site, version=Version.v2016, authcookie=authcookie)
@@ -67,8 +63,5 @@ class SPInterface:
 def main():
     pass
 
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     main()
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
