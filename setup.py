@@ -9,7 +9,7 @@ with open(path.join(parent_directory, 'README.md'), encoding='utf-8') as f:
 
 setup(
   name = 'PyShare',
-  packages = ['pyshare'],
+  packages = ['PyShare'],
   version = '0.1.1',
   license='GNU General Public License v3 (GPLv3)',
   description = 'This a repository that provides a Pythonic interface to interact with Microsoft Sharepoint',
