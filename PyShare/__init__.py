@@ -1,1 +1,0 @@
-from PyShare.interface import *
