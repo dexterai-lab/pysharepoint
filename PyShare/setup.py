@@ -16,7 +16,7 @@ setup(
   author = 'Debabrata Roy Chowdhury',
   author_email = 'debabrata.rc@dexterai.com',
   url = 'https://github.com/dexterai-lab/PyShare',
-  download_url = 'https://github.com/dexterai-lab/quantumdl/archive/v0.1-alpha.tar.gz',
+  download_url = 'https://github.com/dexterai-lab/PyShare/archive/0.1.1.tar.gz',
   keywords = ['SHAREPOINT', 'PYTHON', 'MICROSOFT SHAREPOINT'],
   python_requires=('>=3.6.0'),
   install_requires=[
