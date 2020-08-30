@@ -16,7 +16,7 @@ class SPInterface:
         self.authcookie = Office365(sharepoint_base_url, username=username, password=password).GetCookies()
 
 
-    def download_file_sharepoint(self,source_path, sink_path, filename, sharepoint_site):
+    def download_file_sharepoint(self, source_path, sink_path, filename, sharepoint_site, authcookie=authcookie):
         """This fucntion will download a file from the Sharepoint to specified sink path.
         Parameters:
             source_path = r'Shared Documents/Shared/<Location>'
@@ -48,7 +48,7 @@ class SPInterface:
             break
 
 
-    def upload_file_sharepoint(self, source_path,sink_path,filename,sharepoint_site):
+    def upload_file_sharepoint(self, source_path, sink_path, filename, sharepoint_site, authcookie=authcookie):
         """This fucntion will upload a file from the source path to Sharepoint.
         Parameters:
             source_path = r'/full_sink_path/'
