@@ -10,7 +10,7 @@ from setuptools import setup
 setup(
     name='pysharepoint',
     packages=['pysharepoint'],
-    version='0.1.4',
+    version='0.1.5',
     license='GNU General Public License v3 (GPLv3)',
     description='This a Python package to interact with Microsoft Sharepoint',
     author='Debabrata Roy Chowdhury',
