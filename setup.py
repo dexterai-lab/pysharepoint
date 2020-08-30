@@ -10,13 +10,13 @@ from setuptools import setup
 setup(
     name='pysharepoint',
     packages=['pysharepoint'],
-    version='0.1.3',
+    version='0.1.4',
     license='GNU General Public License v3 (GPLv3)',
     description='This a Python package to interact with Microsoft Sharepoint',
     author='Debabrata Roy Chowdhury',
     author_email='debabrata.rc@dexterai.com',
     url='https://github.com/dexterai-lab/PyShare',
-    download_url='https://github.com/dexterai-lab/pysharepoint/archive/0.1.3.tar.gz',
+    download_url='https://github.com/dexterai-lab/pysharepoint/archive/0.1.4.tar.gz',
     keywords=['SHAREPOINT', 'PYTHON', 'MICROSOFT SHAREPOINT'],
     python_requires=('>=3.6.0'),
     install_requires=[
