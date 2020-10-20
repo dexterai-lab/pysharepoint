@@ -1,4 +1,5 @@
 import os
+import pandas as pd
 from shareplum import Site
 from shareplum import Office365
 from shareplum.site import Version
@@ -74,6 +75,34 @@ class SPInterface:
               raise e
             break
 
+    def list_item_sharepoint(self, directory_path, sharepoint_site):
+        site = Site(sharepoint_site, version=Version.v2016, authcookie=self.authcookie)
+        folder_source = site.Folder(directory_path)
+        #get files in a directory
+        files_item = folder_source.files
+
+        items_df = pd.DataFrame()
+        for i in files_item:
+            items_df = items_df.append(pd.DataFrame.from_dict([i]))
+
+        if len(items_df) > 0:
+            # subset the columns
+            subset_cols = ['Length', 'LinkingUrl', 'MajorVersion','MinorVersion', 'Name', 'TimeCreated', 'TimeLastModified']
+            items_df = items_df[subset_cols]
+
+            #parse url to remove everything after ? mark
+            items_df['LinkingUrl'] = [ i.split('?')[0] for i in items_df['LinkingUrl']]
+            # convert bytes to KB
+            items_df['Length'] = [round(int(i)/1000,2) for i in items_df['Length']]
+            #sort based on file names
+            items_df.sort_values('Name', inplace=True)
+
+            # rename to more friendlier names
+            items_df.columns = ['FileSize', 'FullFileUrl', 'FileVersion','MinorVersion', 'FileName', 'TimeCreated', 'TimeLastModified']
+            return items_df
+        else:
+            print(f'No files in {directory_path} directory')
+            return pd.DataFrame()
 
 def main():
     """Main function"""
