@@ -24,7 +24,7 @@ site = ps.SPInterface(sharepoint_base_url,username,password)
 source_path = 'Shared Documents/Shared/<Location>'
 sink_path = '/full_sink_path/'
 filename = 'filename.ext'
-sharepoint_site = 'https://<abc>.sharepoint.com/sites/<site_name>
+sharepoint_site = 'https://<abc>.sharepoint.com/sites/<site_name>'
 
 site.download_file_sharepoint(source_path, sink_path,filename,sharepoint_site)
 site.upload_file_sharepoint(source_path, sink_path,filename,sharepoint_site)
